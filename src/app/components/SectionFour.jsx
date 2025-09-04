@@ -2,9 +2,9 @@ import React from "react";
 
 function SectionFour({ sectionData }) {
     return (
-        <section className="flex flex-col gap-3 w-full p-5">
+        <section className="flex flex-col gap-3 !mx-auto w-full p-5">
             <h1 className="header w-full text-center">{sectionData.header}</h1>
-            <div className="hidden md:flex gap-[1px] mx-auto">
+            <div className="hidden md:flex !w-full gap-[1px] mx-auto">
                 <div className="flex flex-col gap-[1px]">
                     <ul className="flex gap-[1px]">
                         {sectionData.leftSectionImgs.slice(0, 3).map((e, i) => (
@@ -37,9 +37,9 @@ function SectionFour({ sectionData }) {
                                 </li>
                             ))}
                         </ul>
-                        <ul className="flex flex-col gap-[1px]">
+                        <ul className="flex flex-col gap-[1px] !h-[331px]">
                             {sectionData.rightSectionImgs.slice(2).map((e, i) => (
-                                <li key={`right-bottom-${i}`}>
+                                <li key={`right-bottom-${i}`} className="h-[50%] overflow-hidden">
                                     <img src={e} alt="img" className="object-cover" />
                                 </li>
                             ))}
@@ -47,13 +47,10 @@ function SectionFour({ sectionData }) {
                     </div>
                 </div>
             </div>
-
-            {/* Mobile / Small screens */}
             <div className="md:hidden flex">
-                <ul className="flex flex-wrap w-full gap-[1px]">
-                    {/* Force 2nd image first, and 2 images per row */}
+                <ul className="grid grid-cols-2 w-full gap-[1px]">
                     {sectionData.mobileSectionImg.map((e, i) => (
-                        <li key={`mobile-${i}`} className="w-[40%]">
+                        <li key={`mobile-${i}`}>
                             <img src={e} alt="img" className="object-cover w-full h-full" />
                         </li>
                     ))}
